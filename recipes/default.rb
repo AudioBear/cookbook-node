@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-include_recipe 'node::ppa'
+include_recipe 'node::apt'
 
