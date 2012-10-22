@@ -2,7 +2,7 @@
 
 This cookbook will deploy node and npm (node package manager) to your system. It also defines providers to install/uninstall node module and start/stop/restart node servers.
 
-* homepage : https://github.com/digitalbutter/cookbook-node
+* homepage : https://github.com/AudioBear/cookbook-node
 
 = REQUIREMENTS:
 
@@ -12,7 +12,7 @@ Tested on ubuntu. Should work on other system with upstart.
 
 = ATTRIBUTES:
 
-* node/revision : indicates which revision to install. Default is the latest ('HEAD'). Since node evolves very quickly and is not always that stable, you might want to set it to a stable version (for example 'v0.4.3')
+* node/version : indicates which version/revision to install. Default is the latest ('HEAD'). Since node evolves very quickly and is not always that stable, you might want to set it to a stable version (for example 'v0.8.12')
 
 = USAGE:
 
@@ -43,10 +43,13 @@ Author::
 * Emmanuel Prochasson (<emmanuel@tikibooth.com>)
 * Ed Bosher (<edbo@tikibooth.com>)
 
-Contributor:
+Contributors:
 * Jon Wood (<jon@blankpad.net>)
+* Avishai Ish-Shalom
+* Cameron Johnston
+* Zahary Karadjov
 
-Copyright:: 2011, Tikibooth Limited
+Copyright:: 2011, Tikibooth Limited, 2012 AudioBear Contributors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

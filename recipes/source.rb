@@ -20,10 +20,6 @@
 include_recipe "build-essential"
 include_recipe "git"
 
-%w<curl>.each do |pkg|
-  package pkg
-end
-
 case node[:platform]
   when "centos","redhat","fedora"
     package "openssl-devel"
@@ -32,8 +28,8 @@ case node[:platform]
 end
 
 git "/opt/node-src" do
-  repo node[:node][:repo_url]
-  revision node[:node][:revision]
+  repo "https://github.com/joyent/node.git"
+  revision node[:node][:version]
   notifies :run, "bash[compile_nodejs_source]", :immediately
 end
 
@@ -43,9 +39,5 @@ bash "compile_nodejs_source" do
     ./configure && make -j#{node[:cpu][:total]} && make install && git rev-parse HEAD > /usr/local/share/node-version
   EOH
   not_if '[ -f /usr/local/share/node-version ] && [ "$(git rev-parse HEAD)" = "$(cat /usr/local/share/node-version)" ]', :cwd => "/opt/node-src"
-end
-
-user node[:node][:user] do
-  system true
 end
 
